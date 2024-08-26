@@ -1,0 +1,115 @@
+.product-container {
+    font-family: 'Arial', sans-serif;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+  
+    .product-header {
+      text-align: left;
+  
+      h2 {
+        font-size: 1.8rem;
+      }
+  
+      p {
+        font-size: 1rem;
+        color: #666;
+      }
+    }
+  
+    .product-content {
+      display: flex;
+      justify-content: space-between;
+  
+      .product-images {
+        flex: 1;
+        text-align: center;
+  
+        .main-image {
+          width: 300px;
+          height: auto;
+          margin-bottom: 20px;
+        }
+  
+        .thumbnail-images {
+          display: flex;
+          gap: 10px;
+  
+          img {
+            width: 60px;
+            height: auto;
+            cursor: pointer;
+            border: 1px solid #ccc;
+          }
+        }
+      }
+  
+      .product-details {
+        flex: 1;
+        padding-left: 20px;
+  
+        h3 {
+          font-size: 1.6rem;
+          color: #333;
+        }
+  
+        .size-selection {
+          margin: 20px 0;
+  
+          h4 {
+            margin-bottom: 10px;
+            font-size: 1rem;
+          }
+  
+          a {
+            display: block;
+            margin-bottom: 10px;
+            color: #6a0dad;
+            text-decoration: underline;
+            cursor: pointer;
+          }
+  
+          .sizes {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+  
+            button {
+              padding: 10px;
+              font-size: 1rem;
+              border: 1px solid #ccc;
+              background-color: #f9f9f9;
+              cursor: pointer;
+  
+              &.selected {
+                border-color: #6a0dad;
+                background-color: #e0e0f8;
+              }
+  
+              &:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+              }
+            }
+          }
+        }
+  
+        .add-to-cart {
+          padding: 10px 20px;
+          font-size: 1.2rem;
+          background-color: #6a0dad;
+          color: #fff;
+          border: none;
+          cursor: pointer;
+  
+          &:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+  }
+  

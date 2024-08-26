@@ -1,0 +1,32 @@
+<div class="product-container">
+    <div class="product-header">
+      <h2>Puma Doublecourt</h2>
+      <p>Zapatos Urbano Hombre</p>
+    </div>
+    <div class="product-content">
+      <div class="product-images">
+        <img src="assets/shoe-main.jpg" alt="Puma Doublecourt" class="main-image" />
+        <div class="thumbnail-images">
+          <img src="assets/shoe-main.jpg" alt="Puma Doublecourt thumbnail" />
+          <img src="assets/shoe-side.jpg" alt="Puma Doublecourt side thumbnail" />
+          <img src="assets/shoe-foot.jpg" alt="Puma Doublecourt foot thumbnail" />
+        </div>
+      </div>
+      <div class="product-details">
+        <h3>$ 57.50</h3>
+        <div class="size-selection">
+          <h4>Seleccionar la talla</h4>
+          <a href="#">Guía de tallas</a>
+          <div class="sizes">
+            <button [class.selected]="selectedSize === 38" (click)="selectSize(38)">38</button>
+            <button [class.selected]="selectedSize === 39" (click)="selectSize(39)">39</button>
+            <button [class.selected]="selectedSize === 40" (click)="selectSize(40)">40</button>
+            <button [class.selected]="selectedSize === 41" (click)="selectSize(41)">41</button>
+            <button [class.selected]="selectedSize === 44" (click)="selectSize(44)">44</button>
+          </div>
+        </div>
+        <button class="add-to-cart" [disabled]="!selectedSize">Añadir al carrito</button>
+      </div>
+    </div>
+  </div>
+  
