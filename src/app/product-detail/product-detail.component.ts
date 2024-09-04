@@ -31,6 +31,11 @@ export class ProductDetailComponent implements OnInit {
     }
   }
 
+  getPriceWithDiscount(product: Product): number {
+    const discount = product.discount ?? 0;
+    return product.product_price - (product.product_price * discount / 100);
+  }
+
   addToCart(): void {
     // Método para manejar el evento de añadir al carrito
     console.log(`Producto añadido al carrito: ${this.product?.product_name}, Cantidad: ${this.quantity}`);

@@ -56,49 +56,6 @@
       </div>
 </div>
 <hr class="bg-blue-700 h-1 my-10 mx-20">
-<div class="grid grid-cols-6 mx-20 pb-10">
-  <div class="col-span-1 flex flex-col gap-5">
-    <div class="flex items-center gap-2">
-      <label for="price-filter" class="font-semibold text-md text-[#808080]">Filtros</label>
-      <select id="price-filter" class="px-4 py-2 border border-gray-300 rounded-md bg-gray-100 text-sm text-[#808080] focus:border-blue-500 focus:ring focus:ring-blue-200 focus:outline-none">
-        <option value="low-high">Precio (más bajo)</option>
-        <option value="high-low">Precio (más alto)</option>
-      </select>
-    </div>
-    <div class="border border-gray-300 rounded-md p-4 w-64 bg-white">
-      <h3 class="font-semibold text-gray-700 mb-2">Categorías</h3>
-      <div class="space-y-2">
-        <div class="flex items-center">
-          <input id="hombre" name="category" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
-          <label for="hombre" class="ml-2 text-sm text-gray-700">Hombre</label>
-        </div>
-        <div class="flex items-center">
-          <input id="mujer" name="category" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
-          <label for="mujer" class="ml-2 text-sm text-gray-700">Mujer</label>
-        </div>
-      </div>
-    </div>    
-  </div>      
-  <div class="col-span-5 flex flex-col items-center gap-5">
-    <p class="font-semibold text-[#808080] text-2xl ">DESTACADOS</p>
-    <div class="flex items-center">
-      <div class="max-w-xs bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
-        <img class="w-full h-48 object-cover" src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/384904/01/sv01/fnd/PNA/fmt/png/ST-Runner-v3-Leather-Sneakers-Big-Kids" alt="Puma Blktop Rider">
-        
-        <div class="p-4">
-          <h3 class="text-gray-900 font-semibold text-lg">PUMA BLKTOP RIDER</h3>
-          <p class="text-gray-500 text-sm">Zapatillas Urbano Hombre</p>
-          <div class="flex items-center justify-between mt-3">
-            <span class="text-gray-900 font-bold text-lg">$119.99</span>
-            <button class="bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-blue-500 transition-colors duration-300" routerLink="/product">
-              Ver detalles
-            </button>
-          </div>
-        </div>
-      </div>
-      
-    </div> 
-  </div>
-</div>
+
 <app-product-list></app-product-list>
 <footer class="bg-[#808080] h-24"></footer>

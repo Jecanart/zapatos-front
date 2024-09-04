@@ -1,3 +1,13 @@
+<div class="search-container">
+  <input 
+    type="text" 
+    placeholder="Buscar por nombre" 
+    [(ngModel)]="searchTerm" 
+    (ngModelChange)="onSearchChange()" 
+    class="search-input"
+  />
+</div>
+
 <div class="product-list">
   <div *ngFor="let product of paginatedProducts" 
        class="product-item" 
