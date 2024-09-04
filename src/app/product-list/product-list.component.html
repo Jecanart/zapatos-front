@@ -1,10 +1,19 @@
+<div class="search-container">
+  <input 
+    type="text" 
+    placeholder="Buscar por nombre" 
+    [(ngModel)]="searchTerm" 
+    (ngModelChange)="onSearchChange()" 
+    class="search-input"
+  />
+</div>
+
 <div class="product-list">
   <div *ngFor="let product of paginatedProducts" class="product-item">
     <img [src]="product.main_img" alt="{{ product.product_name }}" class="product-image">
     <div class="product-details">
       <h2 class="product-name">{{ product.product_name }}</h2>
 
-      <!-- Verifica que product.discount esté definido y sea mayor que 0 -->
       <div class="product-prices">
         <p *ngIf="product.discount != null && product.discount > 0" class="product-price original-price">
           <s>{{ product.product_price | currency }}</s>
@@ -25,5 +34,5 @@
 
 <div class="pagination-controls">
   <button (click)="prevPage()" [disabled]="currentPage === 1">Anterior</button>
-  <button (click)="nextPage()" [disabled]="(currentPage * productsPerPage) >= products.length">Siguiente</button>
+  <button (click)="nextPage()" [disabled]="(currentPage * productsPerPage) >= filteredProducts.length">Siguiente</button>
 </div>
