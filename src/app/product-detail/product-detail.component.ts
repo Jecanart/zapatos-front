@@ -1,18 +1,38 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../services/product.service';
+import { Product } from '../models/product.model';
+import { CommonModule, CurrencyPipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule], // Importa CommonModule si es necesario
   templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.scss']
+  styleUrls: ['./product-detail.component.css'],
+  imports: [CommonModule, FormsModule, CurrencyPipe]
 })
-export class ProductDetailComponent {
-  selectedSize: number | null = null;
+export class ProductDetailComponent implements OnInit {
+  product?: Product;
+  quantity = 1;
 
-  selectSize(size: number) {
-    this.selectedSize = size;
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductService
+  ) {}
+
+  ngOnInit(): void {
+    const productId = this.route.snapshot.paramMap.get('id');
+    if (productId) {
+      // Convertir productId a número
+      this.productService.getProduct(+productId).subscribe((data) => {
+        this.product = data;
+      });
+    }
+  }
+
+  addToCart(): void {
+    // Método para manejar el evento de añadir al carrito
+    console.log(`Producto añadido al carrito: ${this.product?.product_name}, Cantidad: ${this.quantity}`);
   }
 }
-
