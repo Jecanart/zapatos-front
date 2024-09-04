@@ -8,4 +8,5 @@ export const routes: Routes = [
     { path: '', component: LandingPageComponent }, // Ruta para la página de inicio
     { path: 'product', component: ProductDetailComponent },  // Ruta para los detalles del producto
     { path: 'productList', component: ProductListComponent },  // Ruta para los detalles del producto
+    { path: 'product/:id', component: ProductDetailComponent },
 ];

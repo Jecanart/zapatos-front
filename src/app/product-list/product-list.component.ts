@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { ProductService } from '../services/product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Product } from '../models/product.model';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-product-list',
-  imports: [CommonModule, HttpClientModule, FormsModule],
+  imports: [CommonModule, HttpClientModule, FormsModule,],
   standalone: true,
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
@@ -18,7 +20,7 @@ export class ProductListComponent implements OnInit {
   productsPerPage = 18;
   searchTerm: string = '';
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService,private router: Router) {}
 
   ngOnInit(): void {
     this.loadProducts();
@@ -67,6 +69,10 @@ export class ProductListComponent implements OnInit {
   getPriceWithDiscount(product: Product): number {
     const discount = product.discount ?? 0;
     return product.product_price - (product.product_price * discount / 100);
+  }
+
+  viewProductDetail(productId: number): void {
+    this.router.navigate(['/product', productId]);
   }
 }
 
