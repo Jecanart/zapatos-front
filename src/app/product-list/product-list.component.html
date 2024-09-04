@@ -1,9 +1,29 @@
 <div class="product-list">
-    <div *ngFor="let product of products" class="product-item">
-      <img [src]="product.main_img" alt="{{ product.product_name }}" class="product-image">
-      <div class="product-details">
-        <h2 class="product-name">{{ product.product_name }}</h2>
-        <p class="product-price">{{ product.product_price }}</p>
+  <div *ngFor="let product of paginatedProducts" class="product-item">
+    <img [src]="product.main_img" alt="{{ product.product_name }}" class="product-image">
+    <div class="product-details">
+      <h2 class="product-name">{{ product.product_name }}</h2>
+
+      <!-- Verifica que product.discount esté definido y sea mayor que 0 -->
+      <div class="product-prices">
+        <p *ngIf="product.discount != null && product.discount > 0" class="product-price original-price">
+          <s>{{ product.product_price | currency }}</s>
+        </p>
+        <p *ngIf="product.discount != null && product.discount > 0" class="product-price discounted-price">
+          {{ getPriceWithDiscount(product) | currency }}
+        </p>
+        <p *ngIf="product.discount == null || product.discount === 0" class="product-price">
+          {{ product.product_price | currency }}
+        </p>
       </div>
+
+      <p class="product-brand">{{ product.brand }}</p>
+      <p class="product-stock">Stock: {{ product.stock }}</p>
     </div>
   </div>
+</div>
+
+<div class="pagination-controls">
+  <button (click)="prevPage()" [disabled]="currentPage === 1">Anterior</button>
+  <button (click)="nextPage()" [disabled]="(currentPage * productsPerPage) >= products.length">Siguiente</button>
+</div>
